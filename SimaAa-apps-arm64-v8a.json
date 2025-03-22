@@ -1,10 +1,10 @@
 {"packages":[
 {"appName":"Sim_aAa App",
 "androidPackageName":"com.simaaa.app",
-"latestVersionCode":"0.3",
+"latestVersionCode":"0.2",
 "appShortDescription":"",
 "requireMicroG":false,
-"latestVersionUrl":"https://pan.mt2.cn/mt/MT2.18.1.apk",
+"latestVersionUrl":"https://github.com/sim-aaa/myapp/raw/refs/heads/main/Sim_aAa%20App_0.2.apk",
 "icon":"https://img5.pic.in.th/file/secure-sv1/Picsart_23-11-21_22-56-33-008.th.png",
 "index":0},
 
