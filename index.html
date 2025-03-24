@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โหลดไฟล์จาก URL</title>
+</head>
+<body>
+    <h1>คลิกเพื่อดาวน์โหลดไฟล์</h1>
+
+    <button onclick="downloadFile('https://drive.usercontent.google.com/download?id=1MN434H5qenuPS4FUb53T0sTLKCdQdQVH&export=download&authuser=0&confirm=t&uuid=b63f7079-6a62-4623-ad44-0e7c6272a057&at=AEz70l5C4tc-Hc45eLl6imIH8PSr%3A1742808907486')">ndk_arm64.tar.gz</button>
+
+
+    <script>
+        function downloadFile(url) {
+            // สร้าง element ของ anchor
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = url.split('/').pop();  // ตั้งชื่อไฟล์จาก URL
+
+            // กำหนดให้ทำการคลิกอัตโนมัติ
+            document.body.appendChild(a);
+            a.click();
+
+            // ลบ element ออกจาก DOM หลังจากดาวน์โหลด
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>
