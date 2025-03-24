@@ -1,10 +1,10 @@
 {"packages":[
 {"appName":"Sim_aAa App",
 "androidPackageName":"com.simaaa.app",
-"latestVersionCode":"0.2",
+"latestVersionCode":"0.3",
 "appShortDescription":"",
 "requireMicroG":false,
-"latestVersionUrl":"https://github.com/sim-aaa/myapp/raw/refs/heads/main/Sim_aAa%20App_0.2.apk",
+"latestVersionUrl":"https://github.com/sim-aaa/myapp/raw/refs/heads/main/Sim_aAa%20App_0.3.apk",
 "icon":"https://img5.pic.in.th/file/secure-sv1/Picsart_23-11-21_22-56-33-008.th.png",
 "index":0},
 
@@ -22,7 +22,7 @@
 "latestVersionCode":"3.2.190514",
 "appShortDescription":"",
 "requireMicroG":false,
-"latestVersionUrl":"https://drive.usercontent.google.com/download?id=1cZ1PmdI_Hs_UHr4UuXixwAtlkW1bux8D&export=download&authuser=0&confirm=t&uuid=2e817425-08cd-40c8-82f6-52ba2be23472&at=AEz70l6C-pqZ6OpQqtZul943jGqy%3A1741926451964",
+"latestVersionUrl":"https://drive.usercontent.google.com/download?id=1UqwTxpZPZIswDL0D0GaVlcw1GM-QQoXO&export=download&authuser=0&confirm=t&uuid=d1965616-a8fe-4388-8a7f-e445b9b1d0e4&at=AEz70l78WWVzmVry3oFqVGmF0P6P:1742809727253",
 "icon":"https://m.apkshub.com/images/eb/com.aide.ui/icon.png",
 "index":2},
 
@@ -58,7 +58,7 @@
 "latestVersionCode":"2.2.1",
 "appShortDescription":"",
 "requireMicroG":false,
-"latestVersionUrl":"https://drive.usercontent.google.com/download?id=18OAa1NYC7rN-ZL1H7WhcLF32JfeQ-OtX&export=download&authuser=0&confirm=t&uuid=f14aca47-dada-4e73-a74d-fb5871568d39&at=AEz70l5bavwXOepOF9vJ610mBR9b:1742561179674",
+"latestVersionUrl":"https://github.com/sim-aaa/myapp/raw/refs/heads/main/AntiSplit-M.v2.2.1.apk",
 "icon":"https://img2.pic.in.th/pic/Sn.th.png",
 "index":6},
   
@@ -67,7 +67,7 @@
 "latestVersionCode":"2.4.0-250315",
 "appShortDescription":"",
 "requireMicroG":false,
-"latestVersionUrl":"https://maximoff.su/files/apk/apktool/Apktool_M_v2.4.0-250315(2025031501).apk?_=1742561509&load=1",
+"latestVersionUrl":"https://maximoff.su/files/apk/apktool/Apktool_M_v2.4.0-250315(2025031501).apk",
 "icon":"https://getmodsapk.com/uploads/icon4.png",
 "index":7}
 ]}
