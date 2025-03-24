@@ -6,12 +6,12 @@
 
 เพิ่มที่ไฟล์ AndroidManifest.xml ตรงส่วนบนของ </application>
 
-<service android:name="com.android.support.Launcher" android:enabled="true" android:exported="true" android:stopWithTask="true" />
+<service android:name="com.android.support.Launcher" android:enabled="true" android:exported="false" android:stopWithTask="true" />
     
 -------------------------------------------------------------
 
 main acitivity's file, search for OnCreate method and paste this code inside (change the package name if you had changed it)
 
-invoke-static {p0}, Lcom/android/support/Loader;->Start(Landroid/content/Context;)V
+invoke-static {p0}, Lcom/android/support/Main;->Start(Landroid/content/Context;)V
 
 -------------------------------------------------------------
