@@ -871,3 +871,210 @@ HEX:
 
 ตัวอย่างการใช้งาน:
 บางครั้งก็จําเป็นที่จะ NOP บางสิ่งบางอย่าง NOP หมายถึง "ข้ามไป เพิกเฉย" ส่วนใหญ่จะใช้หากอยู่ตรงกลางของรหัสเป็นสาขา สมมติว่าตรวจสอบวิธีอื่น วิธีการที่คุณกําลังดัดแปลงคือตัวอย่างเช่น "CheckPremiumStatus" และภายในเมธอดนั้นคุณจะพบรหัสที่ข้ามไปยังเมธอดอื่นซึ่งตรวจสอบสถานะพรีเมียมให้เรียกเมธอด "isReallyPremium" การพยัก "รหัสจั๊มพ์" นั้นจะช่วยป้องกันไม่ให้เกมตรวจสอบซ้ํา มันเป็นตัวอย่างที่อ่อนแอ แต่ดีกว่าที่ฉันไม่พบหากไม่มีกาแฟ (ฉันเพิ่งตื่นขึ้นมา)
+
+ARM32 /////
+
+FLOAT INFINITY -> 80 0F 47 E3 1E FF 2F E1
+
+INT INFINITY -> FF 0F 47 E3 1E FF 2F E1
+
+INT NEGATIVE -> 00 00 48 E3 1E FF 2F E1
+
+FLOAT NEGATIVE -> 7F 0F 4F E3 1E FF 2F E1
+
+
+HOOK FIELD / PARAMETER INSIDE METHOD (Not work on all cases/)
+
+Force Int or Float into a field: IDA Arm
+
+Get your field offset from your generated dump.cs from Il2CppDumper by Perfare.
+
+//float field
+ MOV             R1, #0x447A
+ STR             R1, [R0,#0x10] // replace "0x10" with your field offset inside of dump.cs
+ BX              LR
+hex -> 7A 14 04 E3 10 10 80 E5 1E FF 2F E1
+   
+//int field
+ MOV             R1, #1000
+ STR             R1, [R0,#0x14] // replace "0x14" with your field offset inside of dump.cs
+ BX              LR
+hex -> FA 1F A0 E3 14 10 80 E5 1E FF 2F E1
+
+
+
+STOP IENUMERATOR // HOOK IENUMERATOR
+
+Go to the offset of MoveNext()
+
+public bool MoveNext(); // 0xOFFSET
+
+And write this in hex editor
+
+ MOV             R1, #0xFFFFFFFF
+ STR             R1, [R0,#0x10]
+ MOV             R0, #0
+ BX              LR
+hex -> 00 10 E0 E3 10 10 80 E5 00 00 A0 E3 1E FF 2F E1
+
+same hex for both IEnumerator and IEnumerable //
+
+
+Booleans //
+
+TRUE -> 01 00 A0 E3 1E FF 2F E1 -> can be useful for return conditions to true.
+
+FALSE -> 00 00 A0 E3 1E FF 2F E1 -> can be useful to return conditions to false.
+
+INT / FLOAT
+
+FLOAT: 1 -> 80 0F 43 E3 1E FF 2F E1 -> can be useful for decrease HP, def, attack.
+
+00 00 A0 E3 1E FF 2F E1 = 0 (INT/FLOAT) -> can be useful to decrease HP, atk, def, all kind of stuff you need 0 as a value
+
+7A 04 44 E3 1E FF 2F E1 = 1000 (FLOAT) -> can be useful for attack speed, move speed.
+
+10 (FLOAT) -> 20 01 44 E3 1E FF 2F E1
+
+INT MAX VALUE: 0F 07 02 E3 1E FF 2F E1 
+
+20 (FLOAT) = A0 01 44 E3 1E FF 2F E1
+
+
+
+INT32 ARM VALUE: 
+
+0F 07 02 E3 1E FF 2F E1 = can be useful for whatever int32 function.
+
+BIG FLOAT VALUE -> 9.95106e+31 -> 9D 04 47 E3 1E FF 2F E1 -> can be useful for damage, god mod, hp, def, etc..
+
+C8 02 44 E3 1E FF 2F E1 (float) = 100 -> can be useful for crit rates.
+
+1000 -> FA 0F A0 E3 1E FF 2F E1 
+
+
+INT64 / LONG
+
+FF 09 0C E3 00 10 A0 E3 9A 0B 43 E3 1E FF 2F E1 = 999999999 -> can be useful for HP, atk, def.
+
+00 00 A0 E3 00 10 A0 E3 1E FF 2F E1 = 0 -> can be useful to decrease HP, atk, def.
+
+0F 07 02 E3 00 10 A0 E3 1E FF 2F E1 = 9999
+
+3F 02 04 E3 00 10 A0 E3 0F 00 40 E3 1E FF 2F E1 = 999999
+
+DOUBLE VALUE
+
+10 -> 24 10 44 E3 1E FF 2F E1 
+
+1 -> F0 1F 43 E3 1E FF 2F E1 -> useful for 1hit <33
+
+1 HIT KILL DOUBLE VALUE: 1e+50: 51 1A 44 E3 1E FF 2F E1 // 1e+100: B2 14 45 E3 1E FF 2F E1
+
+00 10 40 E3 1E FF 2F E1 = 0 -> can be useful for UpgradePrice, any kind of upgrade cost, decrease HP, ATK, def.
+
+B2 14 45 E3 1E FF 2F E1 = 9.842628261523554e+99 -> can be useful for godmod, gold, exp, any multipliers.
+
+NO OPERATION / SKIP CODE VALUES -> do this on void methods.
+
+00 F0 20 E3 1E FF 2F E1 = NOP BX LR -> can be useful to skip code inside methods that don't have any parameters in it, it's also a big hint for bypass new securities.
+
+00 00 A0 E1 1E FF 2F E1 = SKIP CODE IN PARAMETERS (change the first two hex (00) with the number of parameters you have, for example if you have 7 parameters, you will put 07.
+
+it's also a big hint to skip a lot of things.
+
+
+1E FF 2F E1 = delete a function.
+
+----------------------------------------------------------------------------------------------------
+
+ARM64 /////
+
+Booleans //
+
+TRUE.
+
+ARM:
+MOV X0, #1
+ret
+
+HEX:
+20 00 80 D2 C0 03 5F D6
+
+FALSE.
+
+ARM:
+MOV X0, #0
+ret
+
+HEX:
+00 00 80 D2 C0 03 5F D6
+
+INT //
+
+RETURN HIGH VALUE.
+
+ARM:
+MOV X0, #0x7F000000
+ret
+
+HEX:
+00 E0 AF D2 C0 03 5F D6
+
+MISC //
+
+NOP.
+
+HEX:
+
+1F 20 03 D5 (for single line) - NOP
+
+1F 20 03 D5 C0 03 5F D6  (for NOP full function) - NOP
+
+
+E0 03 00 AA C0 03 5F D6 = SKIP CODE IN PARAMETERS (change the first two hex (00) with the number of parameters you have, for example if you have 7 parameters, you will put 07.
+
+example: 7 parameters = E0 03 07 AA C0 03 5F D6
+
+
+FLOAT VALUE -> 1 (useful for get_deltaTime function) = 00 10 2E 1E C0 03 5F D6
+
+
+BIG FLOAT VALUE -> 9.95106e+31 -> 60 00 80 52 A0 93 AE 72 00 00 27 1E C0 03 5F D6 (useful for attack speed..)
+
+
+Float -> 100 -> 00 59 A8 52 00 00 27 1E C0 03 5F D6 
+
+Float -> 1000 -> 40 8F A8 52 00 00 27 1E C0 03 5F D6 
+
+
+long / int64 arm64 hex for value 0: 00 00 80 D2 01 00 80 D2 C0 03 5F D6
+
+long / int64 arm64 -> 999999999 -> E0 3F 99 D2 40 73 A7 F2 C0 03 5F D6 
+
+
+1 HIT KILL DOUBLE VALUE: 1e+50: 00 4A E9 D2 00 00 67 9E C0 03 5F D6  // 1e+100: 00 96 EA D2 00 00 67 9E C0 03 5F D6 
+
+
+arm64 hex for doubles: 0: 00 E4 00 2F C0 03 5F D6 // 1: 00 10 6E 1E C0 03 5F D6 // 1000: 00 12 E8 D2 C0 03 5F D6 
+
+
+infinite positive double by @xyzhunter: 00 E0 EF D2 00 00 67 9E C0 03 5F D6
+
+
+int negative -> -9999 -> C0 E1 84 12 C0 03 5F D6 
+
+
+delete a function -> C0 03 5F D6
+
+
+THUMB /// 
+
+
+THUMB -> 01 20 70 47 = 1
+
+THUMB -> 09 20 70 47 = 9
+
+THUMB -> 63 20 70 47 = 99
+
+THUMB -> 00 BF 70 47 = nop
