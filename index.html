@@ -69,6 +69,18 @@
         </div>
     </div>
 
+    <h2>เนื้อหาจากไฟล์ .txt</h2>
+    <div id="content"></div>
+
+    <script>
+        fetch('test.txt') // เปลี่ยนเป็นชื่อไฟล์ของคุณ
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('content').innerText = data;
+        })
+        .catch(error => console.error('เกิดข้อผิดพลาด:', error));
+    </script>
+
     <script>
         function downloadFile(url) {
             // สร้าง element ของ anchor
