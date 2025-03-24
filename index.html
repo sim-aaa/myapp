@@ -73,7 +73,9 @@
     <div id="content"></div>
     <br>
     <script>
-        fetch('AllHexCode(32-64)bit.txt') // เปลี่ยนเป็นชื่อไฟล์ของคุณ
+        fetch('AllHexCode(32-64)bit.txt')
+            fetch('hex-value1.txt')
+                fetch('hex-value2.txt')// เปลี่ยนเป็นชื่อไฟล์ของคุณ
         .then(response => response.text())
         .then(data => {
             document.getElementById('content').innerText = data;
