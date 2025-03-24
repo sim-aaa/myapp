@@ -94,19 +94,25 @@
 
     <div class="container content-container">
         <h2>HEX v7a , v8a</h2>
-        <div id="content">กำลังโหลด...</div>
+        <div id="content1">กำลังโหลด...</div>
+    </div>
+
+    <div class="container content-container">
+        <h2>Extra HEX Codes</h2>
+        <div id="content2">กำลังโหลด...</div>
     </div>
 
     <script>
-        // รายชื่อไฟล์ .txt ที่ต้องการโหลด
-        const files = ['HexCode_64_32.txt'];
+        // รายชื่อไฟล์ที่ต้องการโหลด
+        const fileSets = [
+            { files: ['HexCode_64_32.txt'], containerId: 'content1' },
+            { files: ['info.txt'], containerId: 'content2' }
+        ];
 
-        // ดึง element ที่ใช้แสดงเนื้อหา
-        const contentDiv = document.getElementById('content');
-
-        function loadTextFiles() {
+        function loadTextFiles(fileSet) {
+            const contentDiv = document.getElementById(fileSet.containerId);
             contentDiv.innerHTML = ""; // เคลียร์ข้อมูลก่อนโหลดใหม่
-            files.forEach(file => {
+            fileSet.files.forEach(file => {
                 fetch(file)
                 .then(response => {
                     if (!response.ok) {
@@ -115,7 +121,6 @@
                     return response.text();
                 })
                 .then(data => {
-                    // สร้าง <pre> สำหรับแต่ละไฟล์
                     const pre = document.createElement('pre');
                     pre.textContent = `=== ${file} ===\n${data}\n`;
                     contentDiv.appendChild(pre);
@@ -131,7 +136,7 @@
         }
 
         // โหลดไฟล์อัตโนมัติเมื่อหน้าเว็บโหลดเสร็จ
-        loadTextFiles();
+        fileSets.forEach(loadTextFiles);
 
         function downloadFile(url) {
             const a = document.createElement('a');
