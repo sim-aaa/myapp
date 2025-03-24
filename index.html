@@ -4,12 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>โหลดไฟล์จาก URL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            background-color: #397539;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-    <h1>คลิกเพื่อดาวน์โหลดไฟล์</h1>
+    <div class="container">
+        <h1>คลิกเพื่อดาวน์โหลดไฟล์</h1>
 
-    <button onclick="downloadFile('https://drive.usercontent.google.com/download?id=1MN434H5qenuPS4FUb53T0sTLKCdQdQVH&export=download&authuser=0&confirm=t&uuid=b63f7079-6a62-4623-ad44-0e7c6272a057&at=AEz70l5C4tc-Hc45eLl6imIH8PSr%3A1742808907486')">ndk_arm64.tar.gz</button>
+        <button onclick="downloadFile('https://drive.google.com/uc?export=download&id=1MN434H5qenuPS4FUb53T0sTLKCdQdQVH')">ndk_arm64.tar.gz</button>
 
+        <div class="footer">
+            <p>สร้างโดย ChatGPT - OpenAI</p>
+        </div>
+    </div>
 
     <script>
         function downloadFile(url) {
