@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>โหลดไฟล์จาก URL</title>
+    <title>โหลดไฟล์จาก URL และแสดงไฟล์ .txt</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
             margin: 0;
         }
@@ -18,16 +19,16 @@
         .container {
             text-align: center;
             background-color: #fff;
-            padding: 30px;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
+            width: 90%;
+            max-width: 600px;
         }
 
         h1 {
             color: #333;
-            font-size: 24px;
+            font-size: 22px;
             margin-bottom: 20px;
         }
 
@@ -35,7 +36,7 @@
             background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 10px 20px;
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
@@ -51,6 +52,26 @@
             background-color: #397539;
         }
 
+        .content-container {
+            margin-top: 20px;
+            text-align: left;
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 14px;
+            color: #333;
+            margin: 10px 0;
+        }
+
         .footer {
             margin-top: 20px;
             font-size: 14px;
@@ -59,44 +80,68 @@
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>คลิกเพื่อดาวน์โหลดไฟล์</h1>
-
-        <button onclick="downloadFile('https://drive.google.com/uc?export=download&id=1MN434H5qenuPS4FUb53T0sTLKCdQdQVH')">ndk_arm64.tar.gz</button>
+        <button onclick="downloadFile('https://drive.google.com/uc?export=download&id=1MN434H5qenuPS4FUb53T0sTLKCdQdQVH')">
+            ดาวน์โหลด ndk_arm64.tar.gz
+        </button>
 
         <div class="footer">
             <p>สร้างโดย Sim_aAa</p>
         </div>
     </div>
 
-    <h2>เนื้อหาจากไฟล์ .txt</h2>
-    <div id="content"></div>
-    <br>
-    <script>
-        fetch('AllHexCode(32-64)bit.txt')
-            fetch('hex-value1.txt')
-                fetch('hex-value2.txt')// เปลี่ยนเป็นชื่อไฟล์ของคุณ
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('content').innerText = data;
-        })
-        .catch(error => console.error('เกิดข้อผิดพลาด:', error));
-    </script>
+    <div class="container content-container">
+        <h2>เนื้อหาจากไฟล์ .txt</h2>
+        <div id="content">กำลังโหลด...</div>
+    </div>
 
     <script>
+        // รายชื่อไฟล์ .txt ที่ต้องการโหลด
+        const files = ['AllHexCode(32-64)bit.txt', 'hex-value1.txt', 'hex-value2.txt'];
+
+        // ดึง element ที่ใช้แสดงเนื้อหา
+        const contentDiv = document.getElementById('content');
+
+        function loadTextFiles() {
+            contentDiv.innerHTML = ""; // เคลียร์ข้อมูลก่อนโหลดใหม่
+            files.forEach(file => {
+                fetch(file)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`ไม่สามารถโหลดไฟล์: ${file}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // สร้าง <pre> สำหรับแต่ละไฟล์
+                    const pre = document.createElement('pre');
+                    pre.textContent = `=== ${file} ===\n${data}\n`;
+                    contentDiv.appendChild(pre);
+                })
+                .catch(error => {
+                    console.error('เกิดข้อผิดพลาด:', error);
+                    const errorMsg = document.createElement('p');
+                    errorMsg.textContent = `⚠ ไม่สามารถโหลดไฟล์: ${file}`;
+                    errorMsg.style.color = "red";
+                    contentDiv.appendChild(errorMsg);
+                });
+            });
+        }
+
+        // โหลดไฟล์อัตโนมัติเมื่อหน้าเว็บโหลดเสร็จ
+        loadTextFiles();
+
         function downloadFile(url) {
-            // สร้าง element ของ anchor
             const a = document.createElement('a');
             a.href = url;
-            a.download = url.split('/').pop();  // ตั้งชื่อไฟล์จาก URL
-
-            // กำหนดให้ทำการคลิกอัตโนมัติ
+            a.download = url.split('/').pop(); 
             document.body.appendChild(a);
             a.click();
-
-            // ลบ element ออกจาก DOM หลังจากดาวน์โหลด
             document.body.removeChild(a);
         }
     </script>
+
 </body>
 </html>
