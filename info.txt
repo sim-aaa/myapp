@@ -1,18 +1,17 @@
-Add the SYSTEM_ALERT_WINDOW permission besides other permissions if it doesn't exist. Doesn't matter where you place it as long as it's above the application tag
+เพิ่มที่ไฟล์ AndroidManifest.xml ในส่วนของ <uses-permission
 
 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
 -------------------------------------------------------------
 
-Add the service above the end of application tag (change the package name of your menu if you had changed it)
+เพิ่มที่ไฟล์ AndroidManifest.xml ตรงส่วนบนของ </application>
 
-<service android:name="com.google.menu.Menu" android:enabled="true" android:exported="false"
-    android:stopWithTask="true" />
+<service android:name="com.android.support.Launcher" android:enabled="true" android:exported="true" android:stopWithTask="true" />
     
 -------------------------------------------------------------
 
-Open the main acitivity's smali file, search for OnCreate method and paste this code inside (change the package name if you had changed it)
+main acitivity's file, search for OnCreate method and paste this code inside (change the package name if you had changed it)
 
-invoke-static {p0}, Luk/lgl/MainActivity;->Start(Landroid/content/Context;)V
+invoke-static {p0}, Lcom/android/support/Loader;->Start(Landroid/content/Context;)V
 
 -------------------------------------------------------------
