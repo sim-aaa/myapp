@@ -1,0 +1,197 @@
+This is my collection of hex codes i used when i was hex patching (most of them are probably on this site or don't work) but since the only code i use now is the nop code i figured this could help some of y'all.
+
+I can't give you any sources as i honestly can only remember one and that was @G-Bo ッ with his arm64 codes, but either way i hope this helps :D
+
+
+
+ARMv7
+
+
+
+02 00 A0 E3 1E FF 2F E1 = Number 2
+
+07 00 A0 E3 1E FF 2F E1 = Number 7
+
+0A 00 A0 E3 1E FF 2F E1 = Number 10
+
+0F 00 A0 E3 1E FF 2F E1 = Number 15
+
+10 00 A0 E3 1E FF 2F E1 = Number 16
+
+11 00 A0 E3 1E FF 2F E1 = Number 17
+
+37 00 A0 E3 1E FF 2F E1 = 50
+
+FF 00 A0 E3 1E FF 2F E1 = 255
+
+12 07 80 E3 1E FF 2F E1 = VALUE OF 12 Million or It can be used for health/ammo/armour/damage
+
+DC 0F 00 E3 1E FF 2F E1 = VALUE 4060
+
+DC OF OF E3 1E FF 2F E1 = VALUE 120000
+
+01 0A A0 E3 1E FF 2F E1 = 1000
+
+01 08 A0 E3 1E FF 2F E1 = 10000
+
+01 02 A0 E3 1E FF 2F E1 = 10000000
+
+C2 0A 64 60 00 00 00 02 = Speed Hack
+
+01 04 A0 E3 1E FF 2F E1 = 1000000
+
+0E 00 A0 E3 1E FF 2F E1 = Fire Rate
+
+00 00 40 E3 1E FF 2F E1 = 0 for float
+
+80 0F 43 E3 1E FF 2F E1 = 1 for float
+
+00 00 44 E3 1E FF 2F E1 = 2 for float
+
+40 00 44 E3 1E FF 2E E1 = 3 for float
+
+80 00 44 E3 1E FF 2E E1 = 4 for float
+
+A0 00 44 E3 1E FF 2E E1 = 5 for float
+
+20 01 04 E3 1E FF 2F E1 = 10 for float
+
+20 02 44 E3 1E FF 2F E1 = FLOAT/40
+
+51 00 44 E3 1E FF 2F E1 = 69 for float
+
+C6 02 44 E3 1E FF 2F E1 = FLOAT/99
+
+C7 02 44 E3 1F FF 2F E1 = 99.9 for float
+
+C8 02 44 E3 1E FF 2F E1 = 100 for float
+
+16 03 44 E3 1E FF 2F E1 = 150 for float
+
+48 03 44 E3 1E FF 2F E1 = 200 for float
+
+96 03 44 E3 1E FF 2F E1 = 300 for float
+
+C8 03 44 E3 1E FF 2F E1 = 400 for float
+
+FA 03 04 E3 1E FF 2F E1 = 500 for float
+
+7A 04 04 E3 1E FF 2F E1 = FLOAT FREEZE/999
+
+79 04 44 E3 1E FF 2F E1 = 999.9 for float
+
+7A 04 44 E3 1E FF 2F E1 = 1000 for float
+
+FA 04 04 E3 1E FF 2F E1 = 2000 max amount for float
+
+0F 07 02 E3 1E FF 2F E1 = 9,999
+
+74 70 80 E5 1E FF 2F E1 = for Strings [Coins, Gems]
+
+E7 03 00 E3 1E FF 2F E1 = Freeze int
+
+7A 04 04 E3 1E FF 2F E1 = Freeze float
+
+C8 02 44 E3 1E FF 2F E1 = FLOAT/100
+
+00 F0 20 E3 1E FF 2F E1 = NOP CODE
+
+3B 05 44 E3 1E FF 2F E1 = 3000 for double
+
+7A 05 44 E3 1E FF 2F E1 = 4000 for double
+
+84 09 45 E3 1E FF 2F E1 = 5984 for double
+
+FA 05 44 E3 1E FF 2F E1 = 8000 for double
+
+1C 06 44 E3 1E FF 2F E1 = 9999 for double
+
+1C 06 44 E3 1E FF 2F E1 = 9984 for double
+
+1D 06 44 E3 1E FF 2F E1 = 10048 for double
+
+C3 07 44 E3 1E FF 2F E1 = 99840 for double
+
+AA 08 44 E3 1E FF 2F E1 = 348160 for double
+
+67 09 44 E3 1E FF 2F E1 = 946176 for double
+
+BE 0C 44 E3 1E FF 2F E1 = 99614720 for double
+
+6E 0E 44 E3 1E FF 2F E1 = 998244352 for double
+
+BA 01 45 E3 1E FF 2F E1 = 99857989632 for double
+
+FF FF = Value of 65535 = Highest value 4 character hex code
+
+01 00 A0 E3 1E FF 2F E1 = VALUE 1 Also = True used for bool
+
+00 00 A0 E3 1E FF 2F E1 = Value 0 Also = False used for bool
+
+12 07 A0 E3 1E FF 2F E1 = high value for money
+
+
+
+ARM64
+
+
+
+20 00 80 D2 C0 03 5F D6 = VALUE 1 Also = True used for bool
+
+00 00 80 D2 C0 03 5F D6 = Value 0 Also = False used for bool
+
+00 E0 AF D2 C0 03 5F D6 = high value for money
+
+1F 20 03 D5 = NOP [skip/ignore]
+
+สวัสดีครับ นี่เป็น
+
+เพียงชุดรหัสง่ายๆ ของรหัสหลักที่คุณต้องการในการดัดแปลง ARM64 เนื่องจากเกมจํานวนมากขึ้นเรื่อย ๆ เริ่มเพิ่ม ARM64 แทน ARMv7 หลายคนจึงเริ่มถามฉันเกี่ยวกับรหัสฐานสิบหกที่พวกเขาต้องการในการดัดแปลง เพื่อความปลอดภัยสําหรับตัวเองในการตอบคําถามเดิมซ้ําแล้วซ้ําเล่านี่คือรหัสที่สําคัญที่สุด
+
+
+หากต้องการส่งคืน true:
+
+ARM:
+MOV X0, #1
+ret
+
+HEX:
+20 00 80 D2 C0 03 5F D6
+
+ตัวอย่างการใช้งาน:
+หากวิธีการเป็นตัวอย่างเช่น "IsPremium" วิธีที่ดีที่สุดในการดัดแปลงคือการส่งคืน true (เป็นพรีเมี่ยม? -> ใช่) True เท่ากับ 1 ดังนั้นจึงสามารถใช้เพื่อส่งคืน 1 ได้เช่นกัน
+
+
+ในการส่งคืนเท็จ:
+
+ARM:
+MOV X0, #0
+ret
+
+HEX:
+00 00 80 D2 C0 03 5F D6
+
+ตัวอย่างการใช้งาน:
+หากวิธีการเป็นตัวอย่างเช่น "Skillcooldown" วิธีที่ดีที่สุดในการดัดแปลงคือการส่งคืนเท็จ เท็จไม่ใช่แค่ "ไม่" เท่านั้น แต่ยังเป็น 0 อีกด้วย ดังนั้นคูลดาวน์ของสกิลจะกลับมาเป็น 0 และสามารถใช้สกิลได้ทันที
+
+
+ในการส่งคืนค่าสูง:
+
+ARM: MOV
+X0, #0x7F000000
+ret
+
+HEX:
+00 E0 AF D2 C0 03 5F D6
+
+ตัวอย่างการใช้งาน: ดี
+ที่จะส่งคืนสิ่งที่คุณต้องการสูงมากเช่นความเสียหาย, ทอง, เหรียญหรืออะไรก็ตาม. รหัสนี้เท่ากับ 2130706432
+
+
+เพื่อ NOP บางสิ่ง:
+
+HEX:
+1F 20 03 D5
+
+ตัวอย่างการใช้งาน:
+บางครั้งก็จําเป็นที่จะ NOP บางสิ่งบางอย่าง NOP หมายถึง "ข้ามไป เพิกเฉย" ส่วนใหญ่จะใช้หากอยู่ตรงกลางของรหัสเป็นสาขา สมมติว่าตรวจสอบวิธีอื่น วิธีการที่คุณกําลังดัดแปลงคือตัวอย่างเช่น "CheckPremiumStatus" และภายในเมธอดนั้นคุณจะพบรหัสที่ข้ามไปยังเมธอดอื่นซึ่งตรวจสอบสถานะพรีเมียมให้เรียกเมธอด "isReallyPremium" การพยัก "รหัสจั๊มพ์" นั้นจะช่วยป้องกันไม่ให้เกมตรวจสอบซ้ํา มันเป็นตัวอย่างที่อ่อนแอ แต่ดีกว่าที่ฉันไม่พบหากไม่มีกาแฟ (ฉันเพิ่งตื่นขึ้นมา)
