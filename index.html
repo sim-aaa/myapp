@@ -28,14 +28,18 @@
         }
 
         .content-container {
-            width: 100%;  /* ขยายเต็มความกว้าง */
-            max-width: none; /* ไม่มีข้อจำกัดความกว้าง */
-            box-sizing: border-box; /* ป้องกัน padding ทำให้กล่องเกินขนาด */
-            padding: 20px; /* เพิ่มพื้นที่ขอบภายใน */
-            min-height: 250px; /* ให้ทุกกล่องมีความสูงเท่ากัน */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            width: 90%;
+            max-width: 600px;
+            box-sizing: border-box;
+            padding: 15px;
+            min-height: 250px;
+            max-height: 300px; /* ป้องกันสูงเกินไป */
+            overflow: auto; /* เพิ่ม scroll bar ถ้าข้อความยาว */
+            background: white;
+            border: 1px solid #ddd; /* แสดงกรอบเพื่อให้กล่องไม่ทับกัน */
+            border-radius: 8px;
+            margin: 10px 0; /* ระยะห่างระหว่างกล่อง */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         h1, h2 {
@@ -69,7 +73,7 @@
             word-wrap: break-word;
             font-size: 14px;
             color: #333;
-            margin: 10px 0;
+            margin: 0;
         }
     </style>
 </head>
